@@ -47,11 +47,11 @@ describe('Thermostat', function() {
   describe('power saving mode is on', function() {
     // If power saving mode is on, the maximum temperature is 25 degrees
     it('can\'t exceed 25 degrees', function() {
-      for (var i = 0; i < 6; i++) {
+        for (var i = 0; i < 6; i++) {
       thermostat.up();
     }
     expect(thermostat.isPowerSaving()).toBeTruthy();
-    expect(thermostat.getCurrentTemperature()).toEqual(25)
+    expect(thermostat.getCurrentTemperature()).toEqual(25);
     });
   });
 
@@ -60,8 +60,14 @@ describe('Thermostat', function() {
       thermostat.turnOffPowersaving();
     });
 
-    // If power saving mode is on, the maximum temperature is 25 degrees
-
+    //If power saving mode is off, the maximum temperature is 32 degrees
+    it('can\'t exceed 32 degrees', function() {
+      for (var i = 0; i < 13; i++) {
+        thermostat.up();
+      }
+    expect(thermostat.isPowerSaving()).toBeFalsy();
+    expect(thermostat.getCurrentTemperature()).toEqual(32);
+    });
   });
 
 });

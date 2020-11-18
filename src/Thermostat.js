@@ -1,7 +1,10 @@
 'use strict';
 
 class Thermostat {
-  temperature() {
-    return 20;
+  constructor() {
+    this.temperature = 20;
+  };
+  getCurrentTemperature() {
+    return this.temperature;
   };
 };

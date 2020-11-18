@@ -33,4 +33,9 @@ describe('Thermostat', function() {
   expect(thermostat.getCurrentTemperature()).toEqual(10);
   });
 
+  // Power saving mode is on by default but it can also be turned off
+  it('is on power saving by default', function() {
+    expect(thermostat.isPowerSaving()).toBeTruthy();
+  });
+
 });

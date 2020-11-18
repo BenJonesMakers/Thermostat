@@ -43,6 +43,13 @@ describe('Thermostat', function() {
     expect(thermostat.isPowerSaving()).toBeFalsy();
   });
 
+  // You can reset the temperature to 20 with a reset function
+  it('can reset the temp back to 20 degrees', function() {
+    thermostat.up();
+    thermostat.resetTemperature();
+    expect(thermostat.getCurrentTemperature()).toEqual(20);
+  });
+
   // When power saving mode is on
   describe('power saving mode is on', function() {
     // If power saving mode is on, the maximum temperature is 25 degrees

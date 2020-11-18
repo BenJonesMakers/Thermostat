@@ -35,4 +35,8 @@ class Thermostat {
     this.powerSavingMode = false;
   };
 
+  resetTemperature() {
+    this.temperature = 20;
+  };
+
 };

@@ -50,13 +50,33 @@ describe('Thermostat', function() {
     expect(thermostat.getCurrentTemperature()).toEqual(20);
   });
 
+  //You can ask about the thermostat's current energy usage: < 18 is low-usage,
+  // <= 25 is medium-usage, anything else is high-usage.
+  it('returns low-usage when less than 18 degrees', function() {
+    for (var i = 0; i < 3; i++) {
+      thermostat.down();
+    }
+    expect(thermostat.getCurrentTemperature()).toEqual(17);
+    expect(thermostat.getEnergyUsage()).toEqual('low-usage');
+  });
+
+  it('returns medium-usage when less than or equal to 25 degrees', function() {
+    for (var i = 0; i < 5; i++) {
+      thermostat.up();
+    }
+    expect(thermostat.getCurrentTemperature()).toEqual(25);
+    expect(thermostat.getEnergyUsage()).toEqual('medium-usage');
+  });
+
+
+
   // When power saving mode is on
   describe('power saving mode is on', function() {
     // If power saving mode is on, the maximum temperature is 25 degrees
     it('can\'t exceed 25 degrees', function() {
         for (var i = 0; i < 6; i++) {
-      thermostat.up();
-    }
+          thermostat.up();
+        }
     expect(thermostat.isPowerSaving()).toBeTruthy();
     expect(thermostat.getCurrentTemperature()).toEqual(25);
     });
@@ -74,6 +94,17 @@ describe('Thermostat', function() {
       }
     expect(thermostat.isPowerSaving()).toBeFalsy();
     expect(thermostat.getCurrentTemperature()).toEqual(32);
+    });
+
+    //You can ask about the thermostat's current energy usage: < 18 is low-usage,
+    // <= 25 is medium-usage, anything else is high-usage.
+    
+    it('returns high-usage when higher than 25 degrees', function() {
+      for (var i = 0; i < 6; i++) {
+        thermostat.up();
+      }
+      expect(thermostat.getCurrentTemperature()).toEqual(26);
+      expect(thermostat.getEnergyUsage()).toEqual('high-usage');
     });
   });
 

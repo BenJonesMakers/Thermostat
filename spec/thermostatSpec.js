@@ -38,4 +38,9 @@ describe('Thermostat', function() {
     expect(thermostat.isPowerSaving()).toBeTruthy();
   });
 
+  it('can be turned off', function() {
+    thermostat.turnOffPowersaving();
+    expect(thermostat.isPowerSaving()).toBeFalsy();
+  });
+
 });

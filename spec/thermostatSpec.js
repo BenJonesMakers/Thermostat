@@ -9,7 +9,7 @@ describe('Thermostat', function() {
 
 
   // Thermostat starts at 20 degrees
-  it('starts the thermostat at 20 degrees', function() {
+  it('starts the thermostat at 20 degrees', () => {
     expect(thermostat.getCurrentTemperature()).toEqual(20);
   });
 
@@ -105,6 +105,13 @@ describe('Thermostat', function() {
       }
       expect(thermostat.getCurrentTemperature()).toEqual(26);
       expect(thermostat.getEnergyUsage()).toEqual('high-usage');
+    });
+
+    // Turn on power saving manually
+    it('turns on power saving', function() {
+      expect(thermostat.isPowerSaving()).toBeFalsy();
+      thermostat.turnOnPowersaving();
+      expect(thermostat.isPowerSaving()).toBeTruthy();
     });
   });
 

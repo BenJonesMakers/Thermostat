@@ -1,21 +1,23 @@
 <html>
   <head>
-    <script src="src/thermostat.js"></script>
+    <link rel="stylesheet" href="css/style.css">  
   </head>
   <body>
     <h1>Thermostat</h1>
-    <h1 id="temperature-description">Current temperature: <span id="temperature">XX</span> degrees</h1>
+    <h1 id="temperature-description">Current temperature: <span id="temperature"></span> degrees</h1>
 
-    <button class="thermostat-button" type="button" name="up">Up</button>
-    <button class="thermostat-button" type="button" name="down">Down</button>
-    <button class="thermostat-button" type="button" name="reset">Reset</button>
+    <button class="thermostat-button" id="thermostat-up" type="button" name="up">Up</button>
+    <button class="thermostat-button" id="thermostat-down" type="button" name="down">Down</button>
+    <button class="thermostat-button" id="thermostat-reset" type="button" name="reset">Reset</button>
 
     <h2>Power Saving Mode:</h2>
-    <h2 id="ps-mode">On/Off</h2>
+    <h2 id="ps-mode">On</h2>
 
-    <button class="thermostat-button" type="button" name="ps-on">Power Saving Mode on</button>
-    <button class="thermostat-button" type="button" name="ps-off">Power Saving Mode off</button>
+    <button class="thermostat-button" id="thermostat-ps-on" type="button" name="ps-on">Power Saving Mode on</button>
+    <button class="thermostat-button" id="thermostat-ps-off" type="button" name="ps-off">Power Saving Mode off</button>
 
-    colour if low, medium or high
+    <script src="src/jquery.js"></script>
+    <script src="src/thermostat.js"></script>
+    <script src="src/interface.js"></script>
   </body>
 </html>

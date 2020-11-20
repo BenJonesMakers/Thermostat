@@ -16,6 +16,17 @@
     <button class="thermostat-button" id="thermostat-ps-on" type="button" name="ps-on">Power Saving Mode on</button>
     <button class="thermostat-button" id="thermostat-ps-off" type="button" name="ps-off">Power Saving Mode off</button>
 
+    <section>
+      <h1>Current outside temperature (in <span id="current-city-name">Place</span>): <span id="current-outside-temperature">20</span></h1>
+  <select id="select-city">
+    <option value="london">London</option>
+    <option value="New York">New York</option>
+    <option value="Paris">Paris</option>
+    <option value="Tokyo">Tokyo</option>
+  </select>
+  <button id="btn-city" type="button">Go</button>
+    </section>
+
     <script src="src/jquery.js"></script>
     <script src="src/thermostat.js"></script>
     <script src="src/interface.js"></script>
